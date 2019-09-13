@@ -1,7 +1,13 @@
 <template>
     <div>
         <h1>User Details</h1>
-        <p>ID User: {{id}} </p>
+        <p>ID User: {{$route.params.id}} </p>
+        <hr>
+        <router-link tag="button"
+                     class="btn btn-block btn-warning"
+                     :to="'/user/' + $route.params.id + '/edit'"
+        >Edit
+        </router-link>
     </div>
 </template>
 

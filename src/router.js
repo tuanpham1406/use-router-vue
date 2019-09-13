@@ -1,10 +1,27 @@
 //define router to component
-import User from "@/components/user/User";
 import Home from "@/components/Home";
 import Error from "@/components/404";
-import UserDetail from "@/components/user/UserDetail";
-import UserEdit from "@/components/user/UserEdit";
-import UserStart from "@/components/user/UserStart";
+
+const User = resolve => {
+    require.ensure(['@/components/user/User'], () => {
+        resolve(require('@/components/user/User'))
+    }, 'user')
+};
+const UserDetail = resolve => {
+    require.ensure(['@/components/user/UserDetail'], () => {
+        resolve(require('@/components/user/UserDetail'))
+    }, 'user')
+};
+const UserEdit = resolve => {
+    require.ensure(['@/components/user/UserEdit'], () => {
+        resolve(require('@/components/user/UserEdit'))
+    }, 'user')
+};
+const UserStart = resolve => {
+    require.ensure(['@/components/user/UserStart'], () => {
+        resolve(require('@/components/user/UserStart'))
+    }, 'user')
+};
 import Header from "@/components/layout/Header";
 
 
@@ -21,7 +38,10 @@ export const routes = [
         component: User,
         children: [
             {path: '', name: 'userstart', component: UserStart},
-            {path: ':id', name: 'userdetail', component: UserDetail},
+            {path: ':id', name: 'userdetail', component: UserDetail, beforeEnter: (to, from, next) => {
+                // console.log('Action route guards !');
+                    next()
+                }},
             {path: ':id/edit', name: 'useredit', component: UserEdit}
         ]
     },

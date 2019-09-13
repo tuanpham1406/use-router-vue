@@ -5,7 +5,7 @@
         <hr>
         <router-link tag="button"
                      class="btn btn-block btn-warning"
-                     :to="'/user/' + $route.params.id + '/edit'"
+                     :to="{name: 'useredit', params: {id: $route.params.id}, query: {locate: 'vi', browser: 'chrome'}}"
         >Edit
         </router-link>
     </div>

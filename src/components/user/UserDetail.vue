@@ -5,7 +5,7 @@
         <hr>
         <router-link tag="button"
                      class="btn btn-block btn-warning"
-                     :to="{name: 'useredit', params: {id: $route.params.id}, query: {locate: 'vi', browser: 'chrome'}}"
+                     :to="link"
         >Edit
         </router-link>
     </div>
@@ -15,12 +15,23 @@
     export default {
         data() {
             return {
-                id: this.$route.params.id
+                id: this.$route.params.id,
+                link: {
+                    name: 'useredit',
+                    params: {id: this.$route.params.id},
+                    query: {
+                        locate: 'vi',
+                        browser: 'chrome'
+                    }
+                },
+                hash: '#vue'
             }
         },
-        watch: {
-            '$route'(to) {
-                this.id = to.params.id
+        beforeRouteEnter(to, from, next) {
+            if (true) {
+                next()
+            } else {
+                next(false)
             }
         }
     }

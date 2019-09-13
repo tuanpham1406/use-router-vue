@@ -11,6 +11,7 @@
             sometimes on purpose (injected humour and the like).</p>
         <hr>
         <button class="btn btn-primary" @click="backHome">Go to Home</button>
+        <button class="btn btn-primary" @click="goDetail">Go to Admin Profile</button>
     </div>
 </template>
 
@@ -19,6 +20,9 @@
         methods: {
             backHome() {
                 this.$router.push('/');
+            },
+            goDetail() {
+                this.$router.push('/user/1')
             }
         }
     }

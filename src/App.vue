@@ -1,6 +1,6 @@
 <template>
     <div>
-        <page-header></page-header>
+        <router-view name="header"></router-view>
         <div class="container col-md-10">
             <router-view></router-view>
         </div>
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-    import Header from "@/components/layout/Header";
-
     export default {
-        component: {
-            pageHeader: Header
+        data() {
+            return {
+
+            }
         }
     }
 </script>

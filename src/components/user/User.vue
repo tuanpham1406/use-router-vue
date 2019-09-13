@@ -13,7 +13,7 @@
     export default {
         methods: {
             backHome() {
-                this.$router.push('/');
+                this.$router.push({name: 'homepage'});
             },
             // goDetail() {
             //     this.$router.push('/user/1')
